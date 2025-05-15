@@ -6,7 +6,7 @@
 /*   By: iullibar <iullibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 11:57:00 by elopez-u          #+#    #+#             */
-/*   Updated: 2025/05/12 11:42:51 by iullibar         ###   ########.fr       */
+/*   Updated: 2025/05/15 09:44:50 by iullibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,8 @@ int	ft_echo(t_node *node)
 		return (printf("%d\n", g_status), 0);
 	while (node->full_cmd[i])
 	{
-		printf("%s", node->full_cmd[i]);
-		if (node->full_cmd[i + 1])
-			printf(" ");
+		if (ft_strcmp(node->full_cmd[i], ""))
+			printf("%s ", node->full_cmd[i]);
 		i++;
 	}
 	if (!suppress_newline)
