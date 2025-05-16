@@ -6,7 +6,7 @@
 /*   By: iullibar <iullibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 08:50:04 by iullibar          #+#    #+#             */
-/*   Updated: 2025/05/13 13:46:45 by iullibar         ###   ########.fr       */
+/*   Updated: 2025/05/16 08:47:44 by iullibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	handle_variable(const char *input, int i[2], char *var, char **env)
 	char	*value;
 
 	if (input[i[0] + 1] == '?')
-		return(expand_status(&var[i[1]], i), 1);
+		return (expand_status(&var[i[1]], i), 1);
 	else
 		(*i)++;
 	start = i[0];

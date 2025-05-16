@@ -6,7 +6,7 @@
 /*   By: iullibar <iullibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 13:02:39 by elopez-u          #+#    #+#             */
-/*   Updated: 2025/05/12 11:57:37 by iullibar         ###   ########.fr       */
+/*   Updated: 2025/05/16 09:55:16 by iullibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ void	free_mini(t_mini *mini)
 
 	if (!mini)
 		return ;
+	if (mini->input)
+		free(mini->input);
+	if (mini->tokens)
+		free_array(mini->tokens);
 	if (mini->nodes)
 	{
 		i = 0;
@@ -32,10 +36,6 @@ void	free_mini(t_mini *mini)
 		}
 		free(mini->nodes);
 	}
-	if (mini->input)
-		free(mini->input);
-	if (mini->tokens)
-		free_array(mini->tokens);
 	if (access(".\vtemp\th", W_OK) == 0)
 		unlink(".\vtemp\th");
 }

@@ -6,7 +6,7 @@
 /*   By: iullibar <iullibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 11:56:49 by elopez-u          #+#    #+#             */
-/*   Updated: 2025/05/13 13:32:21 by iullibar         ###   ########.fr       */
+/*   Updated: 2025/05/16 10:00:23 by iullibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ void		open_quotes(char c, int *sq, int *dq);
 void		print_minishell(void);
 void		update_exit_status(t_mini *mini);
 void		ft_error(t_mini *mini);
+void		ft_error_tok(t_mini *mini);
 char		*get_value(char *name, char **env);
 
 // LIBFT

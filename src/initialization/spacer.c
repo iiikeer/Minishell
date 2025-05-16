@@ -6,7 +6,7 @@
 /*   By: iullibar <iullibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 10:07:59 by iullibar          #+#    #+#             */
-/*   Updated: 2025/05/08 13:59:45 by iullibar         ###   ########.fr       */
+/*   Updated: 2025/05/16 09:35:03 by iullibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,31 @@ static void	space(char *new, char c, int *count, int *j)
 	}
 }
 
+static char	*empty_quotes(char *line)
+{
+	int		i;
+	int		j;
+	char	*new;
+
+	i = 0;
+	j = 0;
+	new = malloc(sizeof(char) * (ft_strlen(line) * 4 + 1));
+	if (!new)
+		return (NULL);
+	while (line[i])
+	{
+		if (line[i] == '"' && line[i + 1] == '"')
+			i += 2;
+		else if (line[i] == '\'' && line[i + 1] == '\'')
+			i += 2;
+		else
+			new[j++] = line[i++];
+	}
+	new[j] = '\0';
+	free(line);
+	return (new);
+}
+
 static char	*add_quote_spaces(char *line, int i, int j, int count)
 {
 	char	*new;
@@ -49,6 +74,7 @@ static char	*add_quote_spaces(char *line, int i, int j, int count)
 	new = malloc(sizeof(char) * (ft_strlen(line) * 4 + 1));
 	if (!new)
 		return (NULL);
+	line = empty_quotes(line);
 	while (line[i])
 	{
 		open_quotes(line[i], &sq, &dq);
@@ -61,6 +87,8 @@ static char	*add_quote_spaces(char *line, int i, int j, int count)
 	}
 	new[j] = '\0';
 	free(line);
+	if (new[0] == '\0')
+		return (free(new), NULL);
 	return (new);
 }
 

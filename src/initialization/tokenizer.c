@@ -6,7 +6,7 @@
 /*   By: iullibar <iullibar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 10:17:52 by iullibar          #+#    #+#             */
-/*   Updated: 2025/05/08 13:23:32 by iullibar         ###   ########.fr       */
+/*   Updated: 2025/05/16 10:02:06 by iullibar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ void	tokenizer(t_mini *mini, char *line)
 	int		dq;
 	int		i;
 
+	if (!line)
+		ft_error_tok(mini);
 	toks = malloc(sizeof(char *) * (count_tokens(line) + 1));
 	if (!toks)
 		return ;
